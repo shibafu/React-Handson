@@ -9,20 +9,38 @@
         </script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js">
         </script>
+
+        <style>
+            #root {
+                cursor: pointer;
+                font-size: 20pt;
+                background-color: lightblue;
+                padding: 1px 20px;
+            }
+        </style>
     </head>
 
     <body>
         <h1>React</h1>
-        <div id="root">wait...</div>
+        <div id="root" onclick="doCount();">wait...</div>
         <script>
 
-            // HTML要素を作る
+            // カウンター指定
+            let counter = 0;
+            // セレクタ指定
             let dom = document.querySelector('#root')
-            let element = React.createElement(
-                'p', {}, 'Hello React'
-            )
-            // Reactでレンダリング
-            ReactDOM.render(element, dom)
+            // 関数実行
+            doCount()
+
+            // カウント関数
+            function doCount(){
+                counter++
+                let element = React.createElement(
+                    'p', {}, 'count: ' + counter
+                )
+                // レンダリング
+                ReactDOM.render(element, dom)
+            }
             </script>
     </body>
 </html>
