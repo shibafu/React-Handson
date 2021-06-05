@@ -14,7 +14,7 @@ function doCount(){
                 'h2', {} , "Hello"
             ),
             React.createElement(
-                'h4', {className: 'alert alert-primary'} , "Hello"
+                'h4', {className: 'alert alert-primary'} , "React Sample Page"
             ),
             
             React.createElement(
