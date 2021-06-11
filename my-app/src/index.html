@@ -213,14 +213,18 @@
 
             // message変数を上書きする
             let doChange = (event)=>{
+                // event.targetは今クリックしてるイベントのDOM要素・・・かも
                 let in_val = event.target.value
+                //メッセージ変数を上書き
                 valuable_message = 'こんにちは,' + in_val + 'さん！！'
+                //描画メソッドを再実行
                 doAction()
             }
 
 
             let doAction = (event) => {
                 event_counter++
+                //JSXを定義
                 let el = (
                 <div>
                     <h5 className="alert alert-primary" onClick={doAction}>
@@ -232,6 +236,7 @@
                         id="input" onChange={doChange} />
                 </div>
                 )
+                //仮想DOM描画
             ReactDOM.render(el, eventDom)
             }
 
