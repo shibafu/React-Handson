@@ -9,7 +9,8 @@
         </script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js">
         </script>
-
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js">
+        </script>
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
          rel="stylesheet"
@@ -32,6 +33,8 @@
 
 
         <div id="root">
+        </div>
+        <div id="JSX_root">
         </div>
 
         <div class="container mt-3">
@@ -97,6 +100,96 @@
           </table>
     </form>
         <script src="./script.js">
+        </script>
+        <script type="text/babel">
+            let jsxdom = document.querySelector("#JSX_root")
+
+            let title = "新タイトル"
+            let message = "新しいメッセージ"
+            let link = "http://google.com"
+
+            // スタイル定義クラス
+            const msg_s = {
+                fontSize:"20pt",
+                color:"red",
+                border:"1px solid blue"
+            }
+
+            let printMsg = function(msg, size, color){
+                const style = {
+                    fontSize: size + "pt",
+                    fonrWelght: '700',
+                    color: color,
+                    border: "1px solid " + color
+                }
+
+                return <p style={style}>{msg}</p>
+            }
+
+            let flg = false;
+            let content = "真のメッセージです！"
+            let content_false = "偽のメッセージです！"
+
+            let data = [
+                <li className="list-group-item">One</li>,
+                <li className="list-group-item">Two</li>,
+                <li className="list-group-item">Three</li>
+            ]
+
+            
+            let data2 = [
+                {name:'Taro', mail:'taro@yamada', age:45},
+                {name:'Hanako', mail:'hanako@flower', age:37},
+                {name:'Sachiko', mail:'sachiko@happy', age:29},
+                {name:'Jiro', mail:'jiro@change', age:18},
+                {name:'Kumi', mail:'kumi@class', age:56},
+            ]
+
+            let el = (
+                <div>
+                    <h2>{title}</h2>
+                    <p>{message}</p>
+                    <a style={msg_s} href={link}>Googleへのリンク</a>
+                    {printMsg(' 最初のメッセージ', 36, '#fff')}
+                    {printMsg(' 次のメッセージ', 24, '#aaa')}
+                    {printMsg(' 最後のメッセージ', 12, '#666')}
+
+                    {flg ?
+                        <div className="alert alert-primary mt-3">
+                            <p>{content}</p>
+                        </div>
+                        :
+                        <div className="alert alert-secondary mt-3">
+                            <p>{content_false}</p>
+                        </div>
+                    }
+
+                    <ul className="list-group mt-4">
+                        {data}
+                    </ul>
+
+                    <table className="table table-strioped mt-4">
+                        <thead className="thead-dark">
+                            <tr>
+                                <th>name</th>
+                                <th>name</th>
+                                <th>name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data2.map((value) => (
+                            <tr>
+                                <td>{value.name}</td>
+                                <td>{value.mail}</td>
+                                <td>{value.age}</td>
+                            </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )
+
+            ReactDOM.render(el, jsxdom)
         </script>
     </body>
 </html>
