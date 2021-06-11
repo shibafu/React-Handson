@@ -37,6 +37,10 @@
         <div id="JSX_root">
         </div>
 
+        
+        <div id="JSX_event">
+        </div>
+
         <div class="container mt-3">
             <div class="m-4 bg-warning">margin 3...</div>
             <div class="p-4 bg-warning">padding 4...</div>
@@ -145,6 +149,10 @@
                 {name:'Kumi', mail:'kumi@class', age:56},
             ]
 
+            setInterval(() =>{
+
+                counter++
+
             let el = (
                 <div>
                     <h2>{title}</h2>
@@ -186,10 +194,35 @@
                             ))}
                         </tbody>
                     </table>
+
+                    <div>
+                        <h5 className="alert alert-primary">
+                            count: {counter}
+                            </h5>
+                        </div>
                 </div>
             )
 
             ReactDOM.render(el, jsxdom)
+            }, 1000)
+
+            let eventDom = document.querySelector("#JSX_event")
+
+            var event_counter = 0
+
+            let doAction = (event) => {
+                event_counter++
+                let el = (
+                <div>
+                    <h5 className="alert alert-primary" onClick={doAction}>
+                        count: {event_counter}
+                        </h5>
+                </div>
+                )
+            ReactDOM.render(el, eventDom)
+            }
+
+            doAction()
         </script>
     </body>
 </html>
