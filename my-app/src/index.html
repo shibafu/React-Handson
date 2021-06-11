@@ -209,6 +209,15 @@
             let eventDom = document.querySelector("#JSX_event")
 
             var event_counter = 0
+            var valuable_message = "お名前をどうぞ！ヾ(｡>﹏<｡)ﾉﾞ✧*。 "
+
+            // message変数を上書きする
+            let doChange = (event)=>{
+                let in_val = event.target.value
+                valuable_message = 'こんにちは,' + in_val + 'さん！！'
+                doAction()
+            }
+
 
             let doAction = (event) => {
                 event_counter++
@@ -217,6 +226,10 @@
                     <h5 className="alert alert-primary" onClick={doAction}>
                         count: {event_counter}
                         </h5>
+
+                        <h6>{valuable_message}</h6>
+                        <input type="text" className="form-control"
+                        id="input" onChange={doChange} />
                 </div>
                 )
             ReactDOM.render(el, eventDom)
