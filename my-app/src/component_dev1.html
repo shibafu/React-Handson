@@ -40,15 +40,34 @@
             let message = "message variant"
 
             function Welcome(props) {
-                return <div className="alert alert-primary">
-                        <p>Hello React!</p>
+                return <div className={props.alert}>
+                        <p className={props.fontSize}>Hello React! {props.name}</p>
                     </div>
             }
 
+            function Calc(props) {
+                let total = 0
+                for(let i = 0;i <= props.number;i++){
+                    total += i;
+                }
+                return <p className={props.class}>Number is {total}</p>
+            }
+
             let el =(
-            <Welcome />
+                <div>
+                    <Welcome name="Taro" fontSize="h2"
+                    alert="alert alert-primary" />
 
+                    <Welcome name="Hanako" fontSize="h5"
+                    alert="alert alert-dark" />
 
+                    
+                    <Calc number="30" 
+                    class="alert alert-primary" />
+
+                    <Calc number="10" 
+                    class="alert alert-dark" />
+                </div>
             )
 
             ReactDOM.render(el, dom)
