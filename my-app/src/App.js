@@ -3,12 +3,17 @@ import './App.css';
 import React, { Component } from 'react';
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.title = props.title
+    this.message = props.message
+  }
   render() {
-    return (
-    <div className="App">
+    return <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>おちんぽ</p>
+        <p className="subtitle">{this.title}</p>
+        <p>{this.message}</p>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -22,7 +27,6 @@ class App extends Component {
         </a>
       </header>
     </div>
-    )
   }
 }
 
