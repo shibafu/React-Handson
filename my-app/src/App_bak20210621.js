@@ -5,18 +5,15 @@ import React, { Component } from 'react';
 class App extends Component {
   constructor(props){
     super(props)
-    this.state = {
-      msg:"Hello Component"
-    };
-    this.msg = props.msg
+    this.title = props.title
+    this.message = props.message
   }
   render() {
     return <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p className="subtitle">{this.title}</p>
-        <p>{this.props.msg}</p>
-        <p>{this.state.msg}</p>
+        <p>{this.message}</p>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
