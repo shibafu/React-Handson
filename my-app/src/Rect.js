@@ -21,8 +21,8 @@ class Rect extends React.Component {
     this.style = {
         backgroundColor:this.color,
         position:"absolute",
-        left:this.x,
-        top:this.y,
+        left:this.x + "px",
+        top:this.y + "px",
         width:this.width + "px",
         height:this.height + "px",
         borderRadius:this.radius + "px",
