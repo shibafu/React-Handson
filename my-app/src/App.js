@@ -6,9 +6,17 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      msg:"Hello Component"
+      msg:"Hello Component",
+      count:0,
     };
     this.msg = props.msg
+
+    let timer = setInterval(() => {
+      this.setState({
+        count: this.state.count + 1,
+        msg: "Count is Now [ " + this.state.count + " ] ",
+    })
+  }, 1000);
   }
   render() {
     return <div className="App">
