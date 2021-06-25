@@ -3,92 +3,55 @@ import './App.css';
 import React, { Component } from 'react';
 
 class App extends Component {
+  data = []
+
+  area = {
+    width:"500px",
+    height:"500px",
+    border:"1px solid blue
+  }
   // コンストラクタ
   constructor(props){
     super(props)
     this.state = {
-      msg:"Hello Component",
-      count:0,
-      button_msg:"Hello Component",
-      button_count:0,
-      flg:false
-    };
-    this.msg = props.msg
-
+      list:this.area
+    }
   // イベントリスナーを紐づけ
   this.doAction = this.doAction.bind(this)
-  this.doDisplayChange = this.doDisplayChange.bind(this)
   }
-
-  // コンストラクター終了時に実行されるメソッド
-    componentDidMount(){
-      // 常駐イベント
-      let timer = setInterval(() => {
-        this.setState({
-          count:this.state.count + 1,
-          msg:"Timer is Now [ " + this.state.count + " ] "
-          });
-        }, 1000);
-      }
 
   // ボタンイベント
   doAction(event){
+    let x = e.pageX
+    let y = e.pageY
+    this.data.push({x:x, y:y})
+
     this.setState({
-      button_count:this.state.button_count + 1,
-      button_msg: "ButtonCount is Now [ " + this.state.button_count + " ] "
+      list:this.data
     })
   }
 
   // 表示切替
-  doDisplayChange(event){
-    if (this.state.flg) {
-      this.setState({
-        flg:false
-      })
-    } else {
-      this.setState({
-        flg:true
-      })
+  draw(d){
+    let s = {
+      poisition:"absolute",
+      left:(d.x - 25) + "px",
+      top:(d.y - 25) + "px",
+      width:"50px",
+      height:"50px",
+      backgroundColor:"#66f3",
     }
+    return <div srtyle={s}></div>
   }
 
   // レンダリングメソッド
   render() {
-    return <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="subtitle">{this.title}</p>
-        {/*<p>{this.state.msg}</p>
-        <p>{this.state.button_msg}</p>
-  <button onClick={this.doAction}> ぼたん</button>*/}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-
-        <button onClick={this.doDisplayChange}> 表示カウンター切り替えボタン</button>
-
-        {this.state.flg ? 
-        <div className="alert alert-primary text-right">
-          <p>{this.state.msg}</p>
-        </div>
-        :
-        <div className="alert alert-secondary text-left">
-          <p>{this.state.button_msg}</p>
-          <button onClick={this.doAction}> ぼたん</button>
-        </div>
-      }
-        <p></p>
-        <p></p>
-
-      </header>
+    return <div>
+      <h1 className="bg-primary text-white display-4">React</h1>
+      <p className="subtitle">draw reactangle.</p>
+      <div style={this.area} onClick={this.doAction}>
+        {this.data.map((value)=>this.draw(value))}
+      </div>
     </div>
   }
 
