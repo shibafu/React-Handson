@@ -8,7 +8,7 @@ class App extends Component {
   area = {
     width:"500px",
     height:"500px",
-    border:"1px solid blue
+    border:"1px solid blue"
   }
   // コンストラクタ
   constructor(props){
