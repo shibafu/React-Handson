@@ -20,40 +20,21 @@ class App extends Component {
     this.state = {
       list:this.area
     }
+  // イベントリスナーを紐づけ
+  this.doAction = this.doAction.bind(this)
   }
 
   // ボタンイベント
-  render(){
-    return <div>
-    <h1 className="bg-primary text-white display-4">React</h1>
-      <div classMame="container">
-        <p className="subtitle">Show List</p>
-        <List title="サンプル・リスト" data={this.data} />
-      </div>
-    </div>
+  doAction(event){
+    let x = event.pageX
+    let y = event.pageY
+    this.data.push({x:x, y:y})
+
+    this.setState({
+      list:this.data
+    })
   }
 
-  class List extends Component {
-    number = 1
-
-    render(){
-    let data = this.props.data;
-
-    return (<div>
-      <p className="h5 text-center">{this.props.title}</h1>
-        <ul classMame="list-group-item" key={key}>
-          {
-
-
-          }
-        </div>
-      </div>
-    )
-    }
-  }
-
-
-  }
   // 表示切替
   draw(d){
     let s = {
@@ -74,12 +55,7 @@ class App extends Component {
       <h1 className="bg-primary text-white display-4">React</h1>
       <p className="subtitle">draw reactangle.</p>
       <div style={this.area} onClick={this.doAction}>
-        {this.data.map((item, value) => 
-          <li>
-            <item number={key + 1} value={item} />
-
-          </li>
-        this.draw(value))}
+        {this.data.map((value)=>this.draw(value))}
       </div>
     </div>
   }
