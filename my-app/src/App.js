@@ -32,7 +32,9 @@ class App extends Component {
       </div>
     </div>
   }
+}
 
+  // リスト内部クラス
   class List extends Component {
     number = 1
 
@@ -40,51 +42,35 @@ class App extends Component {
     let data = this.props.data;
 
     return (<div>
-      <p className="h5 text-center">{this.props.title}</h1>
-        <ul classMame="list-group-item" key={key}>
-          {
-
-
-          }
-        </div>
+      <h1 className="h5 text-center">{this.props.title}</h1>
+        <ul classMame="list-group">
+          {data.map((item, key) =>
+            <li className="list-group-item" key={key}>
+              <Item number={key + 1} value={item} />
+            </li>
+          )}
+        </ul>
       </div>
     )
     }
   }
+  // リスト要素クラス
+  class Item extends Component {
+    itm = {}
 
-
-  }
-  // 表示切替
-  draw(d){
-    let s = {
-      poisition:"absolute",
-      left:(d.x - 100) + "px",
-      top:(d.y - 100) + "px",
-      width:"50px",
-      height:"50px",
-      backgroundColor:"#74992e",
-      border:"1px solid #74992e"
+    num = {
+      fontWeight:"bold",
+      color:"red"
     }
-    return <div style={s}>しかく</div>
-  }
-
-  // レンダリングメソッド
-  render() {
-    return <div>
-      <h1 className="bg-primary text-white display-4">React</h1>
-      <p className="subtitle">draw reactangle.</p>
-      <div style={this.area} onClick={this.doAction}>
-        {this.data.map((item, value) => 
-          <li>
-            <item number={key + 1} value={item} />
-
-          </li>
-        this.draw(value))}
-      </div>
-    </div>
-  }
-
-  
+    render(){
+    return (<p>
+      <span style={this.num}>
+        [{this.props.value}]&nbsp;
+      </span>
+      {this.props.value}
+    </p>
+    )
+    }
 }
 
 export default App;
