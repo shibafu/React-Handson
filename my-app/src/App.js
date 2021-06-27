@@ -35,13 +35,14 @@ class App extends Component {
   draw(d){
     let s = {
       poisition:"absolute",
-      left:(d.x - 25) + "px",
-      top:(d.y - 25) + "px",
+      left:(d.x - 100) + "px",
+      top:(d.y - 100) + "px",
       width:"50px",
       height:"50px",
-      backgroundColor:"#66f3",
+      backgroundColor:"#74992e",
+      border:"1px solid #74992e"
     }
-    return <div srtyle={s}>しかく</div>
+    return <div style={s}>しかく</div>
   }
 
   // レンダリングメソッド
