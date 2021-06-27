@@ -22,8 +22,8 @@ class App extends Component {
 
   // ボタンイベント
   doAction(event){
-    let x = e.pageX
-    let y = e.pageY
+    let x = event.pageX
+    let y = event.pageY
     this.data.push({x:x, y:y})
 
     this.setState({
@@ -41,7 +41,7 @@ class App extends Component {
       height:"50px",
       backgroundColor:"#66f3",
     }
-    return <div srtyle={s}></div>
+    return <div srtyle={s}>しかく</div>
   }
 
   // レンダリングメソッド
