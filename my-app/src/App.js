@@ -3,7 +3,11 @@ import './App.css';
 import React, { Component } from 'react';
 
 class App extends Component {
-  data = []
+  data = [
+    "This is list sample.",
+    "コレはリストのサンプルです",
+    "配列をリストに変換します"
+  ]
 
   area = {
     width:"500px",
