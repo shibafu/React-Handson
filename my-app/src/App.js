@@ -3,23 +3,34 @@ import './App.css';
 import React, { Component } from 'react';
 
 class App extends Component {
-  data = [
-    "This is list sample.",
-    "コレはリストのサンプルです",
-    "配列をリストに変換します"
-  ]
+  input = ''
 
-  area = {
-    width:"500px",
-    height:"500px",
-    border:"1px solid blue"
-  }
   // コンストラクタ
   constructor(props){
     super(props)
     this.state = {
-      list:this.area
+      title: 'input title',
+      message: 'message'
     }
+
+    // イベント
+    this.doChange = this.doChange.bind(this)
+    this.doSubmit = this.doSubmit.bind(this)
+  }
+
+  // 変更
+  doChange(event){
+    this.input = event.target.value
+  }
+
+  // 送信
+  doSubmit(event){
+    
+    this.setState({
+      title: 'send form',
+      message: 'Hello, '  + this.input + '!!'
+    })
+    event.preventDefault()
   }
 
   // ボタンイベント
@@ -27,50 +38,18 @@ class App extends Component {
     return <div>
     <h1 className="bg-primary text-white display-4">React</h1>
       <div className="container">
-        <p className="subtitle">Show List</p>
-        <List title="サンプル・リスト" data={this.data} />
+        <h4 className="subtitle">{this.state.title}</h4>
+        <p className="card h5 p-3">{this.state.message}</p>
+        <form onSubmit={this.doSubmit}>
+          <div className="form-group">
+            <label className="form-group">Message:</label>
+            <input type="text" className="form-control" onChange={this.doChange} />
+          </div>
+            <input type="submit" className="btn btn-primary" value="Click" defaultValue="aaa"/>
+        </form>
       </div>
     </div>
   }
-}
-
-  // リスト内部クラス
-  class List extends Component {
-    number = 1
-
-    render(){
-    let data = this.props.data;
-
-    return (<div>
-      <h1 className="h5 text-center">{this.props.title}</h1>
-        <ul className="list-group">
-          {data.map((item, key) =>
-            <li className="list-group-item" key={key}>
-              <Item number={key + 1} value={item} />
-            </li>
-          )}
-        </ul>
-      </div>
-    )
-    }
-  }
-  // リスト要素クラス
-  class Item extends Component {
-    itm = {}
-
-    num = {
-      fontWeight:"bold",
-      color:"red"
-    }
-    render(){
-    return (<p>
-      <span style={this.num}>
-        [{this.props.value}]&nbsp;
-      </span>
-      {this.props.value}
-    </p>
-    )
-    }
 }
 
 export default App;
