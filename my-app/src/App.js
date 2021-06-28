@@ -26,7 +26,7 @@ class App extends Component {
   render(){
     return <div>
     <h1 className="bg-primary text-white display-4">React</h1>
-      <div classMame="container">
+      <div className="container">
         <p className="subtitle">Show List</p>
         <List title="サンプル・リスト" data={this.data} />
       </div>
@@ -43,7 +43,7 @@ class App extends Component {
 
     return (<div>
       <h1 className="h5 text-center">{this.props.title}</h1>
-        <ul classMame="list-group">
+        <ul className="list-group">
           {data.map((item, key) =>
             <li className="list-group-item" key={key}>
               <Item number={key + 1} value={item} />
