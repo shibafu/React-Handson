@@ -11,27 +11,38 @@ const SampleContext = React.createContext(data)
 class App extends Component {
   // 描画メソッド
   render(){
+    return <div>
+      <h1 className="bg-primary text-while display-4">React</h1>
+      <div className="container">
+        <Title />
+        <Message />
+      </div>
+    </div>
 
   }
 }
 
 // タイトル描画メソッド
 class Title extends Component {
-  static contextType;
+  static contextType = SampleContext;
 
   // 描画メソッド
   render(){
-
+    return <div className="card p-2 my-3">
+      <h2>{this.context.title}</h2>
+    </div>
   }
 }
 
 // メッセージ表示コンポーネント
 class Message extends Component {
-  static contextType;
+  static contextType = SampleContext;
 
   // 描画メソッド
   render(){
-
+    return <div className="alert alert-primary">
+      <p>{this.context.message}</p>
+    </div>
   }
 }
 
