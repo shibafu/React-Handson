@@ -10,12 +10,23 @@ const SampleContext = React.createContext(data)
 // アプリメインクラス
 class App extends Component {
   // 描画メソッド
+  newdata = {title:'新しいタイトル',
+message:'新しいメッセージ'}
   render(){
     return <div>
       <h1 className="bg-primary text-while display-4">React</h1>
       <div className="container">
         <Title />
         <Message />
+        < hr />
+        <SampleContext.Provider value={this.newdata}>
+          <Title />
+          <Message />
+        </ SampleContext.Provider>
+        < hr />
+        <Title />
+        <Message />
+        < hr />
       </div>
     </div>
 
