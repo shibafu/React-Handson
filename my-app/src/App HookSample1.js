@@ -4,10 +4,7 @@ import React, { Component, useState } from 'react';
 
   // テーマ
   function App(){
-    const [count, setCount] = userState(0)
-    const clickFunc = () =>{
-      setCount(count + 1)
-    }
+    const [message] = useState("Welcome to Hooks")
 
     return (
       <div>
@@ -15,8 +12,7 @@ import React, { Component, useState } from 'react';
         <div className="container">
           <h4 className="my-3">Hooks sample</h4>
           <div className="alert alert-primary text-center">
-            <p className="h5 mb-3">click: {count} times!</p>
-            <div><button className="btn btn-primary" onClick={clickFunc} >クリック！</button></div>
+            <p className="h5">{message}</p>
           </div>
         </div>
       </div>
