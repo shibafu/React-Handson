@@ -4,9 +4,20 @@ import React, { Component, useState } from 'react';
 
   // テーマ
   function App(){
-    const [count, setCount] = userState(0)
-    const clickFunc = () =>{
+    // カウントステートをセット
+    const [count, setCount] = useState(0)
+    const clickCountButtonFunc = () =>{
       setCount(count + 1)
+    }
+    // フラグステートをセット
+    const [flag, setFlag] = useState(false)
+    const clickFlagButtonFunc = (e) =>{
+      if(flag){
+        setFlag(false)
+      }
+      else {
+        setFlag(true)
+      }
     }
 
     return (
@@ -14,9 +25,22 @@ import React, { Component, useState } from 'react';
         <h1 className="bg-primary text-white display-4 ">React</h1>
         <div className="container">
           <h4 className="my-3">Hooks sample</h4>
-          <div className="alert alert-primary text-center">
+          {/* フラグステート */}
+          {flag ? 
+          <div className="alert alert-primary text-center ">
             <p className="h5 mb-3">click: {count} times!</p>
-            <div><button className="btn btn-primary" onClick={clickFunc} >クリック！</button></div>
+            <div><button className="btn btn-primary" onClick={clickCountButtonFunc} >クリック！</button></div>
+          </div>
+        :
+        <div className="card p-3 border-primary text-left ">
+          <p className="h5 mb-3">click: {count} times!</p>
+          <div><button className="btn btn-primary" onClick={clickCountButtonFunc} >クリック！</button></div>
+        </div>
+        }
+        {/* ボタンステート */}
+          <div className="alert alert-primary text-center">
+            <p className="h5 mb-3 text-left text-primary">Change Form Style!</p>
+            <div><button className="btn btn-primary" onClick={clickFlagButtonFunc} >クリック！</button></div>
           </div>
         </div>
       </div>
