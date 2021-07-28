@@ -33,7 +33,6 @@ import React, { Component, useState } from 'react';
           </div>
         :
         <div className="card p-3 border-primary text-left ">
-        <div className="card p-3 border-primary text-left ">
           <p className="h5 mb-3">click: {count} times!</p>
           <div><button className="btn btn-primary" onClick={clickCountButtonFunc} >クリック！</button></div>
         </div>

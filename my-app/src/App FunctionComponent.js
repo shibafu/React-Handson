@@ -3,36 +3,27 @@ import './App.css';
 import React, { Component, useState } from 'react';
 
   // テーマ
-  function AlertMessage(props) {
+  function AlertMessage() {
     return (<div className="alert alert-primary h5 text-primary">
-      {props.message}
+      this is Alert Message
     </div>)
 
   }
   // テーマ
-  function CardMessage(props) {
+  function CardMessage() {
     return (<div className="card p-3 h5 border-primary text-center">
-      {props.message}
+      this is Alert Message
     </div>)
 
   }
   // テーマ
   function App() {
-    const [msg, setMessage] = useState("This is State Message!!ヾ(｡>﹏<｡)ﾉﾞ✧*。 ")
-
-    const doAction = () => {
-      let res = window.prompt('type your name')
-      setMessage("Hello!! " + res + "!!")
-    }
-
-
     return (<div>
       <h1 className="bg-primary text-white display-4 ">React</h1>
       <div className="container">
         <h4>Component Sample</h4>
-        <CardMessage message={msg} />
-        <AlertMessage message={msg} />
-        <button onClick={doAction} className="btn btn-primary">Click Me !!</button>
+        <CardMessage />
+        <AlertMessage />
       </div>
     </div>)
 
