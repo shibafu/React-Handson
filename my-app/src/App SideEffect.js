@@ -19,7 +19,6 @@ import React, { Component, useState, useEffect } from 'react';
     // state
     const [val, setVal] = useState(0)
     const [msg, setMsg] = useState('set a Number')
-    const [msg, setMsg] = useState('set a Number')
 
     // フックメソッド
     const doChange = (event) => {
